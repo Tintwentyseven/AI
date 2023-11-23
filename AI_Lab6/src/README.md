@@ -4,55 +4,57 @@ AI - LAB - NLU
 
 (Semester 1, 2023/2024)
 
-**Lab #5**: Informed search (cont.)
+**Lab #6**: Local search algorithms
 
-The main aim of this lab is to solve the problem of an 8-puzzle using **Greedy Best First**
+The main aim of this lab is to solve the problem of 8 Queen using **Hill climbing with**
 
-**Search** and **A\* Search**.
+**random restart** and **Simulated annealing algorithms.**
 
 
-For given states of the 8-puzzle problem as follows:
 
-![Alt text](image.png)
+The problem statement is as follows: Consider an N × N chessboard. Place N queens on the
 
-Two measures can be used for computing heuristics:
+board such that no two queens are attacking each other. The queen is the most powerful piece
 
-• h<sub>1</sub>: The number of tiles out of place
+in chess and can attack from any distance horizontally, vertically, or diagonally. Thus, a
 
-• h<sub>2</sub>: Sum of distances of tiles from goal positions, using Manhattan distance
+solution must place the queens such that no two queens are in the same row, the same
 
-The computation of these measures is described in the following table:
+column, or along the same diagonal.
 
-**Tile Index in Initial State Index in Goal State**
+In this lab, the problem is solved using a **complete-state formulation** (N=8), which means
 
-<b>h<sub>1</sub> h<sub>2</sub></b>
+we start with **all 8 queens on the board**. We represent the 8 × 8 chessboard as a matrix. In
 
-![Alt text](image-2Lab5.png)
-The costs used in Greedy, and A\* are as follows:
+addition, we assume that each Queen is placed on a different column. Therefore, we try to
 
-} **Greedy best-first search**: expand the node that is closest to the goal
+move the Queen to different row (each by one row) to reach a goal state.
 
-**f(n) = h(n)**
+The heuristic is measured by using:
 
-} **A\* search**: combine UCS and Greedy (minimizing the total estimated solution cost)
+• *h = the number of pairs of attacking queens*
 
-**f(n) = g(n) + h(n)**
+Class diagram is described as follows:
 
-\==================================================================
+![Alt text](image-1Lab6.png)
 
-The main aim of the algorithm for solving 8 puzzles is based on moving white tile (**UP,**
+Code:
 
-**DOWN, LEFT, RIGHT**) to get new successors. Then using the measure f(n) = g(n) + h(n)
+**public class** Queen {
 
-(as in A\* algorithm) or f(n) = h(n) (in the case of Greedy Best First Search) to choose the
+**private int** row;
 
-next state -with the lowest f(n) to expand. The procedure is repeated until f(n) = 0.
+**private int** column;
 
-In this lab, the initial state and the goal state are represented in **PuzzleMap.txt** and
+**public** Queen(**int** row, **int** column) {
 
-**PuzzleGoalState.txt.** The code for loading these states was implemented in **Puzzle** class.
+**super**();
 
-Page 1
+**this**.row = row;
+
+**this**.column = column;
+
+1
 
 
 
@@ -62,45 +64,87 @@ AI - LAB - NLU
 
 (Semester 1, 2023/2024)
 
-***Notice that: Ignore moves that return you to the previous state***
+}
 
-**Task 1.** Implement the following methods in **Puzzle** class:
+//...
 
-//Move white tile **UP**, **DOWN**, **LEFT**, **RIGHT**. Remember to check when a tile is
+**Node class:** each node includes N Queens and presents a state.
 
-//out of the map.
+**public class** Node {
 
-**public** Node moveTile(Node currentState, **char** operator) {...}
+**public static final int *N*** = 8;
 
-**public int** computeH1(Node currentState) {...}
+**private** Queen[] state;
 
-**public int** computeH2(Node currentState) {...}
+**public** Node() {
 
-The frontier is a PriorityQueue with comparator implementations defined in PuzzleUtils
+// generateBoard();
 
-class:
+state = **new** Queen[***N***];
 
-PriorityQueue<Node> frontier = **new**
+}
 
-PriorityQueue<Node>(PuzzleUtils.*HeuristicComparatorByH*);
+**public** Node(Queen[] state) {
 
-The pseudo-code based on graph search that can be used:
+**this**.state = **new** Queen[***N***];
 
-![Alt text](image-3Lab5.png)
+**for** (**int** i = 0; i < state.length; i++) {
 
-**Task 2.** Solve the 8 puzzle problem using **Greedy Best First Search** with *h1 or h2*
+**this**.state[i] = **new** Queen(state[i].getRow(),
 
-introduced in the previous section (implements **IPuzzleAlgo** interface).
+state[i].getColumn());
 
-**Task 3.** Solve the 8 puzzle problem using A\* Search with ***h(n)**, **g(n)*** as the number of steps
+}
 
-traversed from the **Start** node to get to the current node, function ***h*** could be ***h1*** or ***h2*** as
+}
 
-introduced in the previous section.
+**public** Node(Node n) {
 
-**Case 1: f(n) = g(n) + h1(n)**
+**this**.state = **new** Queen[***N***];
 
-Page 2
+**for** (**int** i = 0; i < ***N***; i++) {
+
+Queen qi = n.state[i];
+
+**this**.state[i] = **new** Queen(qi.getRow(),
+
+qi.getColumn());
+
+}
+
+}
+
+//...
+
+}
+
+**Task 1:** Implement the following methods in **Queen.java** class:
+
+//Move the queen by 1 row
+
+**public void** move() {...}
+
+//Check whether this Queen can attack the given Queen (q)
+
+**public boolean** isConflict(Queen q) {...}
+
+**Task 2:** Implement the following methods in **Node.java** class:
+
+**public int** getH() {
+
+**int** heuristic = 0;
+
+// Enter your code here
+
+**return** heuristic;
+
+}
+
+**public** List<Node> generateAllCandidates() {
+
+List<Node> result = **new** ArrayList<Node>();
+
+2
 
 
 
@@ -110,19 +154,111 @@ AI - LAB - NLU
 
 (Semester 1, 2023/2024)
 
-![Alt text](image-1.png)
+// Enter your code here
 
-**Case 2: f(n) = g(n) + h2(n)**
+**return** result;
 
-![Alt text](image-2.png)
+}
 
-**Task 4. (Advanced)** Apply other algorithms to solve the 8-puzzle problem such as *DFS*,
+**Task 3:** Implement execute for traditional Hill Climbing search and
 
-*BFS,* and *local search (Hill climbing)* beside *Greedy best-first search* and *A\** algorithms
+executeHillClimbingWithRandomRestart to overcome the local optimum using
 
-(implemented in the previous tasks). Then, present a comparison of selected algorithms in
+the given method named generateAllCandidates(in **Node.java** class) to generate all
 
-terms of **running time**, and **the number of steps** to reach the goal state from the initial state.
+candidates.
+
+**public** Node execute(Node initialState) {
+
+// Enter your code here.
+
+**return null**;
+
+}
+
+**public** Node executeHillClimbingWithRandomRestart(Node
+
+initialState) {
+
+// Enter your code here.
+
+**return null**;
+
+}
+
+The pseudocode of Hill Climbing Search:
+
+![Alt text](image-2Lab6.png)
+
+Notice that, VALUE[neighbor] <= VALUE[current] means the current state is the best state.
+
+Hill climbing algorithm reaches a peak.
+
+The pseudocode of Hill Climbing Search with Random Restart:
+
+**function**(initialState) {//Node initialState
+
+state <- execute HillClimbingSearh(initialState);
+
+//computeH(state)=0 means that the solution is found
+
+while (computeH(state)!=0){
+
+*// Random Restart If not a Solution.*
+
+//generate new configuration of N Queens
+
+3
 
 
+
+<a name="br4"></a>
+
+AI - LAB - NLU
+
+(Semester 1, 2023/2024)
+
+state <- state.generateBoard();
+
+state <- execute HillClimbingSearh(state);
+
+}
+
+return state;
+
+};
+
+**Additional task**. Using the following defined variable to track the information of the
+
+implemented algorithms (defined in HillClimbingSearchNQueen class).
+
+**int** stepClimbed = 0;
+
+**int** stepClimbedAfterRandomRestart = 0;
+
+**int** randomRestarts = 0;
+
+**Task 4:** Apply SA alogrithm for NQueen problem, pseudocode is described as follows:
+
+First, implement the following method to select a random successor of the current state.
+
+**public** Node selectNextRandomCandidate() {
+
+// Enter your code here.
+
+**return** null;
+
+}
+
+Then, implement the SA algorithm w.r.t the following pseudo code as follows:
+
+![Alt text](image-3Lab6.png)
+
+**Hint**: We can use the **h** measure as aforementioned as the value of **VALUE[next],**
+
+**VALUE[current]**, cooling rate is used as a coefficient to decrease the temperature for each
+
+iteration (see attached project applying SA algorithm to solve TSP problem).
+
+4
 
