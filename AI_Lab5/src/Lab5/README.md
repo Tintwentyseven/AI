@@ -13,7 +13,7 @@ The main aim of this lab is to solve the problem of an 8-puzzle using **Greedy B
 
 For given states of the 8-puzzle problem as follows:
 
-![Alt text](image.png)
+![Alt text](image-1Lab5.png)
 
 Two measures can be used for computing heuristics:
 
@@ -110,11 +110,11 @@ AI - LAB - NLU
 
 (Semester 1, 2023/2024)
 
-![Alt text](image-1.png)
+![Alt text](image-4Lab5.png)
 
 **Case 2: f(n) = g(n) + h2(n)**
 
-![Alt text](image-2.png)
+![Alt text](image-5Lab5.png)
 
 **Task 4. (Advanced)** Apply other algorithms to solve the 8-puzzle problem such as *DFS*,
 
