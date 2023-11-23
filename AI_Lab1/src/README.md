@@ -1,4 +1,4 @@
-AI - LAB - NLU
+![image](https://github.com/Tintwentyseven/NhapmonAI/assets/125652348/cd7c6166-d168-4d64-be2b-e539f88d0a0f)AI - LAB - NLU
 
 (Semester 1, 2023/2024)
 
@@ -88,7 +88,8 @@ public Action execute(Percept p) {//Percept: location and status/state
 return null;
 }
 
-Pseudocode is described in the following figure.
+Pseudocode is described in the following figure. 
+![Alt text](image-3.png)
 
 
 
