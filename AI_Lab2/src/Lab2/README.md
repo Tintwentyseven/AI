@@ -13,6 +13,7 @@ search and tree search approaches.
 For a given state space with nodes and weights of each edge described in the following
 
 figure:
+
 ![Alt text](image-1Lab2.png)
 
 
@@ -138,6 +139,7 @@ Page 2
 AI - LAB - NLU
 
 (Semester 1, 2023/2024)
+
 ![Alt text](image-2Lab2.png)
 
 Fig. 2. Tree Search and Graph Search
@@ -261,7 +263,9 @@ PriorityQueue<Node>(new
 **NodeComparator** is used for comparing the path costs of two nodes. Pseudocode for UCS
 
 (graph search):
+
 ![Alt text](image-3Lab2.png)
+
 Fig. 3. Uniform cost search
 
 \==================================================================
@@ -285,7 +289,9 @@ AI - LAB - NLU
 **Additional task**: test all implementations with the following tree:
 
 ![Alt text](image-4Lab2.png)
+
 Fig. 4. State space 2
+
 **Task 6**
 
 
@@ -304,9 +310,13 @@ methods
 public Node execute(Node root, String goal, int limitedDepth)
 
 *Pseudocode*:
+
 ![Alt text](image-5Lab2.png)
+
 Fig. 5. Depth-limited tree search
+
 ![Alt text](image-6Lab2.png)
+
 Fig. 6. State space 3
 
 
