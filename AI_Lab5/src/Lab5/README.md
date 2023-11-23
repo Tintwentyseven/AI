@@ -28,6 +28,7 @@ The computation of these measures is described in the following table:
 <b>h<sub>1</sub> h<sub>2</sub></b>
 
 ![Alt text](image-2Lab5.png)
+
 The costs used in Greedy, and A\* are as follows:
 
 } **Greedy best-first search**: expand the node that is closest to the goal
