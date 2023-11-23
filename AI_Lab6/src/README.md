@@ -54,7 +54,7 @@ Code:
 
 **this**.column = column;
 
-1
+Page 1
 
 
 
@@ -144,7 +144,7 @@ qi.getColumn());
 
 List<Node> result = **new** ArrayList<Node>();
 
-2
+Page 2
 
 
 
@@ -208,7 +208,7 @@ while (computeH(state)!=0){
 
 //generate new configuration of N Queens
 
-3
+Page 3
 
 
 
@@ -260,5 +260,5 @@ Then, implement the SA algorithm w.r.t the following pseudo code as follows:
 
 iteration (see attached project applying SA algorithm to solve TSP problem).
 
-4
+
 
