@@ -1,4 +1,4 @@
-![image](https://github.com/Tintwentyseven/NhapmonAI/assets/125652348/cd7c6166-d168-4d64-be2b-e539f88d0a0f)AI - LAB - NLU
+AI - LAB - NLU
 
 (Semester 1, 2023/2024)
 
