@@ -54,7 +54,7 @@ The costs used in UCS, Greedy, and A\* are as follows:
 
 **f(n) = g(n) + h(n)**
 
-1
+Page 1
 
 
 
@@ -126,7 +126,7 @@ Test the implemented algorithms with the following state space:
 
 Fig. 1. State space 1
 
-2
+Page 2
 
 
 
@@ -167,6 +167,5 @@ true cost of a given node to the goal is found by using A\*
 first search and A\* search algorithms to find a path from **Start** to **Goal** (not from the Root to
 
 Goal as in Tasks 1, 2).
-
-3
+ 
 
