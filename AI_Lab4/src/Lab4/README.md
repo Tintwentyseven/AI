@@ -67,6 +67,7 @@ AI - LAB - NLU
 Where g(n) represents the path cost from the Start node to n, h(n) represents the heuristic cost
 
 from n to the Goal.
+
 ![Alt text](image-2Lab4.png)
 
 \==================================================================
@@ -121,7 +122,7 @@ Double h2 = o2.getH();
 
 Test the implemented algorithms with the following state space:
 
-![Alt text](image-1.png)
+![Alt text](image-3Lab4.png)
 
 Fig. 1. State space 1
 
@@ -137,13 +138,13 @@ AI - LAB - NLU
 
 **The result using A\*:**
 
-![Alt text](image-2.png)
+![Alt text](image-4Lab4.png)
 
 Later, test the implemented algorithms with the following state space (*find the path from S to*
 
 *G1 or G2*):
 
-![Alt text](image-3.png)
+![Alt text](image-5Lab4.png)
 
 Fig. 2. State space 2
 
