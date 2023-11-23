@@ -37,7 +37,7 @@ Next, the interface **IInformedSearchAlgo.java** defined the execute method as f
 Pseudocode of Uniform Cost Search (UCS) can be used to implement Greedy best-first
 
 search and A\* search.
-![Alt text](image.png)
+![Alt text](image-1Lab4.png)
 
 The costs used in UCS, Greedy, and A\* are as follows:
 
